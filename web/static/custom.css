@@ -1,0 +1,21 @@
+.cono {
+    position: relative;
+}
+
+.image {
+    position: absolute;
+    margin: auto;
+    width: 70%;
+    height: 70%;
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+.back {
+    z-index: 0;
+    margin-top: 120px;
+}
+
+.fore {
+    z-index: 1;
+}
