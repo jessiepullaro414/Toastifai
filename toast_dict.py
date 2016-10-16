@@ -1,6 +1,6 @@
 #this is a project made at hackriddle 2016
 #it is a "smart" toaster using clarifai, simplecv, and twilio
-#by: Jessie Pullaro, Frank Calas, Max Farrel and Kyle Spomer
+#by: Jessie Pullaro, Frank Calas and Kyle Spomer
 
 
 
@@ -8,7 +8,7 @@
 
 from clarifai import rest
 from clarifai.rest import ClarifaiApp
-
+import json
 
 #pulls the api keys from keys.py
 app = ClarifaiApp("nnDJHbfgjR6qFYT_zv9RVoMBmR9-vFnvWFMHfm0F", "JqEgorhvy0DGV8PYHwhDg24f3N4yGiRi1HQBS46a")
@@ -31,5 +31,16 @@ model = model.train()
 
 model = app.models.get("toast")
 
+
+model_json = model.predict_by_filename("/home/jessie/Projects/hackathons/toast/Toastifai/infiniteimages/68.png")
+
+print model_json[u'outputs'][0][u'data'][u'concepts'][0][u'id']
+
+print (model_json[u'outputs'][0][u'data'][u'concepts'][0])
+
+if "perfect toast" == string_maybe:
+        print "YAY"
+else :
+        print "AWWWW"
+
 # predict with samples
-print model.predict_by_filename("/home/jessie/Projects/hackathons/toast/Toastifai/infiniteimages/68.png")
